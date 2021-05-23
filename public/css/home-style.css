@@ -1,0 +1,19 @@
+.form-control {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.image-home {
+  margin-top: -100px;
+}
+
+body {
+  margin-top: 100px;
+}
+
+.index {
+  z-index: 1;
+}
