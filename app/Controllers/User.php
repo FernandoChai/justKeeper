@@ -23,7 +23,8 @@ class User extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Profile | JustRent'
+            'title' => 'Profile | JustRent',
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('user/profile', $data);
@@ -33,7 +34,8 @@ class User extends BaseController
     {
         $data = [
             'title' => 'Edit Profile | JustRent',
-            'validation' => \config\Services::validation()
+            'validation' => \config\Services::validation(),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('user/edit', $data);
@@ -160,7 +162,8 @@ class User extends BaseController
             'title' => 'Offered service | JustRent',
             'services' =>  $services,
             'order' => $order->paginate(1, 'order'),
-            'pager' => $this->bookModel->pager
+            'pager' => $this->bookModel->pager,
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         if ($this->request->getvar('onService') == '1') {
@@ -192,7 +195,8 @@ class User extends BaseController
             'title' => 'Add Service| JustRent',
             'validation' => \config\Services::validation(),
             'category' => $this->categoryModel->findAll(),
-            'location' => $this->locationModel->findAll()
+            'location' => $this->locationModel->findAll(),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('user/add', $data);

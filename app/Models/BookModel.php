@@ -37,6 +37,7 @@ class BookModel extends Model
         $builder->where('service.userId', user()->id);
         $builder->where('booking.status !=', 3);
         $builder->where('booking.status !=', 2);
+        $builder->where('booking.status !=', 5);
         return $builder;
     }
 }

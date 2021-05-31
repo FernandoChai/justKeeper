@@ -19,7 +19,8 @@ class Booking extends BaseController
         $data = [
             'title' => 'Booking | JustRent',
             'book' => $book->paginate(3, 'book'),
-            'pager' => $this->bookModel->pager
+            'pager' => $this->bookModel->pager,
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('booking/index', $data);

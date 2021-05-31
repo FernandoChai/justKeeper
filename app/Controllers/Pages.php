@@ -2,12 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Models\BookModel;
+
 class Pages extends BaseController
 {
+    protected $bookModel;
+
+    public function __construct()
+    {
+
+        $this->bookModel = new BookModel();
+    }
+
     public function index()
     {
         $data = [
-            'title' => 'Home | JustRent'
+            'title' => 'Home | JustRent',
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('pages/home', $data);
@@ -16,7 +27,8 @@ class Pages extends BaseController
     public function about()
     {
         $data = [
-            'title' => 'About | JustRent'
+            'title' => 'About | JustRent',
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('pages/about', $data);

@@ -64,7 +64,11 @@
             <a href="/User/edit" class="btn btn-warning">Edit Profile</a>
             <div class="row mt-2">
                 <div class="col-md mb-4">
-                    <a href="/User/offered" class="btn btn-success">Offered Service</a>
+                    <a href="/User/offered" class="btn btn-success">Offered Service<?php if ($num > 0) : ?>
+                        <span class="badge bg-danger">
+                            <?= $num; ?>
+                        </span>
+                    <?php endif; ?></a>
                 </div>
             </div>
         </div>

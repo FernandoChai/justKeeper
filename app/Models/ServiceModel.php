@@ -13,12 +13,13 @@ class ServiceModel extends Model
     public function searchService($category, $location)
     {
         $builder = $this->table('service');
-        $builder->select('name, service.userId as userId, categoryValue as category, locationValue as location, price, description, users.picture as up, slug');
+        $builder->select('name, serviceStatus, service.userId as userId, categoryValue as category, locationValue as location, price, description, users.picture as up, slug');
         $builder->join('users', 'users.id = userId');
         $builder->join('category', 'category.categoryId = service.category');
         $builder->join('location', 'location.locationId = service.location');
         $builder->where('category', $category);
         $builder->where('location', $location);
+        $builder->where('serviceStatus', 1);
 
         return $builder;
     }

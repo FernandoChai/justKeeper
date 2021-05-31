@@ -7,16 +7,30 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= base_url('/'); ?>">Home</a>
+                    <a class="nav-link <?php if (uri_string() == '/') {
+                                            echo 'active';
+                                        }; ?>" aria-current="page" href="<?= base_url('/'); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/pages/about'); ?>">About</a>
+                    <a class="nav-link <?php if (uri_string() == 'pages/about') {
+                                            echo 'active';
+                                        }; ?> ?>" href="<?= base_url('/pages/about'); ?>">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/Booking'); ?>">Booking</a>
+                    <a class="nav-link <?php if (uri_string() == 'Booking') {
+                                            echo 'active';
+                                        }; ?>" href="<?= base_url('/Booking'); ?>">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/User'); ?>">Profile</a>
+                    <a class="nav-link <?php if (uri_string() == 'User') {
+                                            echo 'active';
+                                        }; ?>" href="<?= base_url('/User'); ?>">Profile
+                        <?php if ($num > 0) : ?>
+                            <span class="badge bg-danger">
+                                <?= $num; ?>
+                            </span>
+                        <?php endif; ?>
+                    </a>
                 </li>
             </ul>
         </div>

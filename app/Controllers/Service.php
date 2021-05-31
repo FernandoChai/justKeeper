@@ -39,7 +39,8 @@ class Service extends BaseController
             'title' => 'Search | JustRent',
             'validation' => \config\Services::validation(),
             'category' => $this->categoryModel->findAll(),
-            'location' => $this->locationModel->findAll()
+            'location' => $this->locationModel->findAll(),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('Service/search', $data);
@@ -75,7 +76,8 @@ class Service extends BaseController
         $data = [
             'title' => 'Result | JustRent',
             'service' => $service->paginate(6, 'service'),
-            'pager' => $this->serviceModel->pager
+            'pager' => $this->serviceModel->pager,
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('Service/result', $data);
@@ -92,7 +94,8 @@ class Service extends BaseController
             'service' => $service,
             'review' => $review->paginate(3, 'review'),
             'pager' => $this->reviewModel->pager,
-            'avgRate' => $this->reviewModel->getRate($service->id)
+            'avgRate' => $this->reviewModel->getRate($service->id),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         if (empty($data['service'])) {
@@ -107,7 +110,8 @@ class Service extends BaseController
         $data = [
             'title' => 'Checkout Service | JustRent',
             'service' => $this->serviceModel->getService($slug),
-            'validation' => \config\Services::validation()
+            'validation' => \config\Services::validation(),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         if (empty($data['service'])) {
@@ -166,7 +170,8 @@ class Service extends BaseController
             'validation' => \config\Services::validation(),
             'service' => $this->serviceModel->getService($slug),
             'category' => $this->categoryModel->findAll(),
-            'location' => $this->locationModel->findAll()
+            'location' => $this->locationModel->findAll(),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         return view('service/edit', $data);
@@ -244,7 +249,8 @@ class Service extends BaseController
             'validation' => \config\Services::validation(),
             'review' => $this->reviewRate->findAll(),
             'slug' => $slug,
-            'bookId' => $this->request->getVar('bookId')
+            'bookId' => $this->request->getVar('bookId'),
+            'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
         if (empty($data['slug'])) {
