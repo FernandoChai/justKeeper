@@ -62,6 +62,9 @@
             <?php if ($config->allowRegistration) : ?>
                 <p class="mt-3">Don't have any account? <a href="<?= route_to('register') ?>">Sign Up</a></p>
             <?php endif; ?>
+            <?php if ($config->activeResetter) : ?>
+                <p><a href="<?= route_to('forgot') ?>"><?= lang('Auth.forgotYourPassword') ?></a></p>
+            <?php endif; ?>
         </div>
 
     </div>

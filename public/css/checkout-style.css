@@ -1,0 +1,11 @@
+body {
+  margin-top: 100px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.vertical-center {
+  align-items: center;
+}

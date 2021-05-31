@@ -1,0 +1,12 @@
+body {
+  margin-top: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.vertical-align {
+  align-items: center;
+}

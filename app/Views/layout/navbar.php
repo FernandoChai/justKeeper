@@ -13,7 +13,7 @@
                     <a class="nav-link" href="<?= base_url('/pages/about'); ?>">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/pages/booking'); ?>">Booking</a>
+                    <a class="nav-link" href="<?= base_url('/Booking'); ?>">Booking</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/User'); ?>">Profile</a>

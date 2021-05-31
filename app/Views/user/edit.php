@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-7 offset-md-3">
             <h2 class="my-3">Edit Profile</h2>
-            <form action="/User/update/<?= user()->id; ?>" method="POST">
+            <form action="/User/update/<?= user()->id; ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="row mb-3">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
@@ -42,12 +42,13 @@
                 <div class="row mb-3">
                     <label for="gender" class="col-md-2 col-form-label">Gender</label>
                     <div class="col-md-10">
+                        <?php (old('gender')) ? $gen = old('gender') : $gen = user()->gender; ?>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input <?= ($validation->hasError('gender')) ? 'is-invalid' : ''; ?>" type="radio" name="gender" id="gender" value="Male">
+                            <input class="form-check-input <?= ($validation->hasError('gender')) ? 'is-invalid' : ''; ?>" type="radio" name="gender" id="gender" value="Male" <?= ($gen == 'Male')  ? "checked" : ""; ?>>
                             <label class="form-check-label" for="gender">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input <?= ($validation->hasError('gender')) ? 'is-invalid' : ''; ?>" type="radio" name="gender" id="gender2" value="Female">
+                            <input class="form-check-input <?= ($validation->hasError('gender')) ? 'is-invalid' : ''; ?>" type="radio" name="gender" id="gender2" value="Female" <?= ($gen == 'Female') ? "checked" : ""; ?>>
                             <label class="form-check-label" for="gender2">Female</label>
                             <div class="invalid-feedback d-inline">
                                 <?= $validation->getError('gender'); ?>
@@ -63,6 +64,21 @@
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             <?= $validation->getError('address'); ?>
                         </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="picture" class="col-md-2 col-form-label">Profile Picture</label>
+                    <div class="col-md-10">
+                        <input class="form-control custom-file-input <?= ($validation->hasError('picture')) ? 'is-invalid' : ''; ?>" type="file" id="picture" name="picture" onchange="previewPic()">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            <?= $validation->getError('picture'); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="picture" class="col-md-2 col-form-label">Preview image</label>
+                    <div class="col-md-5">
+                        <img src="/img/<?= user()->picture; ?>" class="img-thumbnail img-fluid img-preview">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary d-inline">Save</button>

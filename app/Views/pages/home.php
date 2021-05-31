@@ -21,7 +21,7 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-lg-10">
-            <a href="/Pages/search">
+            <a href="/Service/search">
                 <div class="input-group shadow p-3 mb-5 bg-body">
                     <p class="rounded form-control ps-4">Chef, Electronic services, House keeper, etc. </p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50px" fill="currentColor" class="bi bi-arrow-right-square-fill justify-content-end index" viewBox="0 0 16 16">

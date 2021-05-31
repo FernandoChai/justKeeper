@@ -21,13 +21,4 @@ class Pages extends BaseController
 
         return view('pages/about', $data);
     }
-
-    public function search()
-    {
-        $data = [
-            'title' => 'Search | JustRent'
-        ];
-
-        return view('pages/search', $data);
-    }
 }

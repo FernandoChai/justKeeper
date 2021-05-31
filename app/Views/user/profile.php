@@ -18,7 +18,7 @@
     <div class="row ">
         <div class="col-md text-center justify-content-center">
             <h1>My Profile</h1>
-            <img src="/Img/Logo/<?= user()->picture; ?>" alt="profile" class="img-fluid mb-2">
+            <img src="/Img/<?= user()->picture; ?>" alt="profile" class="img-fluid mb-2">
             <h4><?= user()->username; ?></h4>
         </div>
         <div class="col-md mt-5">

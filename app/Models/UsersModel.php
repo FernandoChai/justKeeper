@@ -8,9 +8,9 @@ class UsersModel extends Model
 {
     protected $table = 'users';
     protected $useTimestamps = true;
-    protected $allowedFields = ['username', 'name', 'dob', 'gender', 'address', 'gambar'];
+    protected $allowedFields = ['username', 'name', 'dob', 'gender', 'address', 'picture', 'userId', 'slug'];
 
-    public function getService($id = false)
+    public function getUser($id = false)
     {
         if ($id == false) {
             return $this->findAll();
