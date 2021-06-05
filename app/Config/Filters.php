@@ -63,6 +63,12 @@ class Filters extends BaseConfig
 	 * @var array
 	 */
 	public $filters = [
-		'login' => ['before' => ['service', 'Pages/about', '/']],
+		'login' => ['before' => [
+			'Service/search', '/', 'Service/result', 'Service', 'Service/detail', 'Service/checkout', 'Service/save', 'Service/delete', 'Service/edit', 'Service/update',
+			'Service/review', 'Service/comment',
+			'Pages',
+			'User/add', 'User/edit', 'User/offered', 'User', 'User/update', 'User/save',
+			'Booking', 'Booking/confirmation', ''
+		]],
 	];
 }

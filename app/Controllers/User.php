@@ -236,9 +236,6 @@ class User extends BaseController
             return redirect()->to('/User/add')->withInput();
         }
 
-
-        // $slug = url_title($this->request->getVar('nama'), '-', true);
-
         $this->serviceModel->save([
             'category' => $this->request->getVar('category'),
             'location' => $this->request->getVar('location'),

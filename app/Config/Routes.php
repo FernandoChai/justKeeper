@@ -38,7 +38,7 @@ $routes->get('/', 'Pages::index');
 
 $routes->delete('/Service/(:num)', 'Service::delete/$1');
 // $routes->get('/service/create', 'Service::create');
-// $routes->get('/service/edit/(:segment)', 'Service::edit/$1');
+// $routes->get('/Service/detail/(:segment)', 'Service::detail/$1');
 // $routes->delete('/service/(:num)', 'service::delete/$1');
 // $routes->get('/service/(:any)', 'Service::detail/$1');
 

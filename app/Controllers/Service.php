@@ -22,17 +22,6 @@ class Service extends BaseController
         $this->reviewRate = new RateModel();
     }
 
-    // public function index()
-    // {
-
-    //     $data = [
-    //         'title' => 'Daftar Service',
-    //         'service' => $this->serviceModel->getService()
-    //     ];
-
-    //     return view('Service/index', $data);
-    // }
-
     public function search()
     {
         $data = [
@@ -83,11 +72,15 @@ class Service extends BaseController
         return view('Service/result', $data);
     }
 
-    public function detail($slug)
+    public function detail($slug = null)
     {
-        // $id = $this->request->getVar('id');
+        if (!$slug) {
+            return redirect()->to("/Pages");
+        }
+
         $service = $this->serviceModel->getService($slug);
         $review = $this->reviewModel->getReview($service->id);
+
 
         $data = [
             'title' => 'Detail Service | JustRent',
@@ -105,8 +98,11 @@ class Service extends BaseController
         return view('Service/detail', $data);
     }
 
-    public function checkout($slug)
+    public function checkout($slug = null)
     {
+        if (!$slug) {
+            return redirect()->to("/Pages");
+        }
         $data = [
             'title' => 'Checkout Service | JustRent',
             'service' => $this->serviceModel->getService($slug),
@@ -150,21 +146,22 @@ class Service extends BaseController
             'serviceId' => $this->request->getVar('id'),
         ]);
 
-        // session()->setFlashdata('pesan', 'Data Success insert!');
-
         return redirect()->to('/Booking');
     }
 
     public function delete($id)
     {
-
         $this->serviceModel->delete($id);
         session()->setFlashdata('pesan', 'Service Success delete!');
         return redirect()->to('/User/offered');
     }
 
-    public function edit($slug)
+    public function edit($slug = null)
     {
+        if (!$slug) {
+            return redirect()->to("/Pages");
+        }
+
         $data = [
             'title' => 'Edit Service | JustRent',
             'validation' => \config\Services::validation(),
@@ -220,36 +217,31 @@ class Service extends BaseController
             'userId' => user()->id
         ]);
 
-        // $db      = \Config\Database::connect();
-        // $builder = $db->table('review');
-        // $builder->select('review.serviceId');
-        // $builder->join('service', 'service.id = review.serviceId');
-        // $builder->where('service.userId', user()->id);
-        // $query = $builder->get();
-
-        // $services = $query->getRow();
-
-
-        // $this->reviewRate->delete($services->serviceId);
-
         session()->setFlashdata('pesan', 'Service success update!');
 
         return redirect()->to('/User/offered');
     }
 
-    public function review($slug)
+    public function review($slug = null)
     {
         if (!(user()->name && user()->dob && user()->gender && user()->address)) :
             session()->setFlashdata('pesan', 'You must finish your profile first before post a review');
             return redirect()->to('/user');
         endif;
 
+        $bookId = $this->request->getVar('bookId');
+
+        if (!$slug || !$bookId) {
+            return redirect()->to('/Pages');
+        }
+
+
         $data = [
             'title' => 'Review Service | JustRent',
             'validation' => \config\Services::validation(),
             'review' => $this->reviewRate->findAll(),
             'slug' => $slug,
-            'bookId' => $this->request->getVar('bookId'),
+            'bookId' => $bookId,
             'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
@@ -259,8 +251,11 @@ class Service extends BaseController
         return view('Service/review', $data);
     }
 
-    public function comment($slug)
+    public function comment($slug = null)
     {
+        if (!$slug) {
+            return redirect()->to('/Pages');
+        }
 
         if (!$this->validate([
             'rate' => [

@@ -24,7 +24,6 @@
                             <?php else : ?>
                                 <?php $rate = $r['rate'] ?>
                             <?php endif; ?>
-
                             <?php if ($r['rate'] == old('rate')) : ?>
                                 <option selected value="<?= $r['rate']; ?>"><?= $rate; ?></option>
                             <?php else : ?>
