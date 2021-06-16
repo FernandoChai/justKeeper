@@ -10,3 +10,14 @@ a {
 .vertical-align {
   align-items: center;
 }
+
+.info {
+  font-weight: bold;
+  border: 2px solid;
+  border-radius: 8px;
+}
+
+.info:hover {
+  color: white;
+  background-color: black;
+}

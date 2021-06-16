@@ -34,7 +34,16 @@
                                 </div>
                                 <div class="col-md">
                                     <h5 class="text-danger">IDR <?= $b['price']; ?></h5>
-                                    <h1><?= $b['status']; ?></h1>
+                                    <h1 style="color: <?php if ($b['statNum'] == 1) : ?>
+                                    <?= 'orange'; ?>
+                                    <?php elseif ($b['statNum'] == 2 || $b['statNum'] == 5) : ?>
+                                    <?= 'green'; ?>
+                                    <?php elseif ($b['statNum'] == 3) : ?>
+                                    <?= 'red'; ?>
+                                    <?php elseif ($b['statNum'] == 4) : ?>
+                                    <?= 'black'; ?>
+                                    <?php endif; ?>
+                                    ;"> <?= $b['status']; ?></h1>
                                     <?php if ($b['statNum'] == 2) : ?>
                                         <form action="/Service/review/<?= $b['slug']; ?>" method="POST">
                                             <?= csrf_field() ?>

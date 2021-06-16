@@ -12,11 +12,6 @@
                                         }; ?>" aria-current="page" href="<?= base_url('/'); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if (uri_string() == 'pages/about') {
-                                            echo 'active';
-                                        }; ?> ?>" href="<?= base_url('/pages/about'); ?>">About</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link <?php if (uri_string() == 'Booking') {
                                             echo 'active';
                                         }; ?>" href="<?= base_url('/Booking'); ?>">Booking</a>
@@ -27,7 +22,11 @@
                                         }; ?>" href="<?= base_url('/User'); ?>">Profile
                         <?php if ($num > 0) : ?>
                             <span class="badge bg-danger">
-                                <?= $num; ?>
+                                <?php if ($num > 99) : ?>
+                                    99+
+                                <?php else : ?>
+                                    <?= $num; ?>
+                                <?php endif; ?>
                             </span>
                         <?php endif; ?>
                     </a>

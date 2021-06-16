@@ -66,7 +66,11 @@
                 <div class="col-md mb-4">
                     <a href="/User/offered" class="btn btn-success">Offered Service<?php if ($num > 0) : ?>
                         <span class="badge bg-danger">
-                            <?= $num; ?>
+                            <?php if ($num > 99) : ?>
+                                99+
+                            <?php else : ?>
+                                <?= $num; ?>
+                            <?php endif; ?>
                         </span>
                     <?php endif; ?></a>
                 </div>

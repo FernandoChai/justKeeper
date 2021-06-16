@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('css'); ?>
-<link rel="stylesheet" href="/css/result-style.css">
+<link rel="stylesheet" href="/css/detail-style.css">
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
@@ -17,12 +17,12 @@
         </div>
     </div>
     <div class="row mx-auto">
-        <div class="col-md-3 offset-md-3 ">
+        <div class="col-12 text-center col-md-3 offset-md-3 col-lg-3">
             <img src="/Img/<?= $service->up; ?>" alt="profile-Picture" class="img-fluid" width="200px">
         </div>
-        <div class="col-md">
+        <div class="col-12 col-lg-5 col-md-5 res-center">
             <div class="row">
-                <div class="col-md ">
+                <div class="col ">
                     <h1><?= $service->name; ?></h1>
                     <div class="mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
                         </svg>
                         <p class="d-inline"><?= ($avgRate->rate) ? number_to_amount($avgRate->rate, 2) : '0'; ?></p>
                     </div>
-                    <h3>IDR <?= $service->price; ?></h3>
+                    <h3 class="text-danger">IDR <?= $service->price; ?></h3>
                     <p><?= $service->location; ?>, Indonesia</p>
                     <?php if ($service->userId == user()->id) : ?>
                         <a href="/Service/edit/<?= $service->slug; ?>" class="btn btn-warning">Edit</a>
@@ -65,6 +65,29 @@
         <div class="col-md offset-md-3">
             <h5>Review</h5>
         </div>
+        <div class="col-md">
+            <form action="" method="GET">
+                <input type="hidden" value="<?= $slug; ?>" name="slug">
+                <label for="sort" style="font-weight: bold;">Sort:</label>
+                <select id="sort" name="sort" aria-label="Default select example" required class="px-2 py-1" style="border-radius: 6px; border-color: #4d80e4;" onchange="this.form.submit();">
+                    <?php foreach ($revRate as $c) : ?>
+                        <?php if ($c['rateId'] == $sort) : ?>
+                            <?php if ($sort == 1) : ?>
+                                <option selected value="<?= $c['rateId']; ?>">All</option>
+                            <?php else : ?>
+                                <option selected value="<?= $c['rateId']; ?>"><?= $c['rate']; ?></option>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <?php if ($c['rateId'] == 1) : ?>
+                                <option value="<?= $c['rateId']; ?>">All</option>
+                            <?php else : ?>
+                                <option value="<?= $c['rateId']; ?>"><?= $c['rate']; ?></option>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            </form>
+        </div>
     </div>
     <?php if ($review) : ?>
         <div class="container">
@@ -95,11 +118,11 @@
         </div>
     <?php else : ?>
         <div class="container">
-            <div class="row">
-                <div class="col-md offset-md-3 shadow-sm p-3 mb-5 bg-body rounded">
-                    <p>Has no review yet</p>
+            <div class="row mt-3">
+                <div class="col-md offset-md-3 shadow-sm p-3 mb-5 bg-body rounded alert alert-danger" role="alert">
+                    Has no review yet
                 </div>
-                <div class="col-md-2">
+                <div class=" col-md-2">
 
                 </div>
             </div>

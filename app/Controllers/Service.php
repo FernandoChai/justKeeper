@@ -8,10 +8,11 @@ use App\Models\CategoryModel;
 use App\Models\LocationModel;
 use App\Models\RateModel;
 use App\Models\ReviewModel;
+use App\Models\FilterModel;
 
 class Service extends BaseController
 {
-    protected $serviceModel, $bookModel, $locationModel, $categoryModel, $reviewModel, $reviewRate;
+    protected $serviceModel, $bookModel, $locationModel, $categoryModel, $reviewModel, $reviewRate, $filterModel;
     public function __construct()
     {
         $this->serviceModel = new ServiceModel();
@@ -20,6 +21,7 @@ class Service extends BaseController
         $this->locationModel = new LocationModel();
         $this->reviewModel = new ReviewModel();
         $this->reviewRate = new RateModel();
+        $this->filterModel = new FilterModel();
     }
 
     public function search()
@@ -61,15 +63,66 @@ class Service extends BaseController
         $category = $this->request->getVar('category');
         $location = $this->request->getVar('location');
 
-        $service = $this->serviceModel->searchService($category, $location);
+        if ($category == 2) {
+            $categoryName = 'Chef';
+        } else if ($category == 3) {
+            $categoryName = 'Electronic Service';
+        } else {
+            $categoryName = 'House Keeper';
+        }
+
+        switch ($location) {
+            case 2:
+                $locationName = 'Jakarta Barat';
+                break;
+            case 3:
+                $locationName = 'Jakarta Timur';
+                break;
+            case 4:
+                $locationName = 'Jakarta Utara';
+                break;
+            case 5:
+                $locationName = 'Jakarta Selatan';
+                break;
+            case 6:
+                $locationName = 'Jakarta Pusat';
+                break;
+        }
+
+        $sort = $this->request->getVar('sort');
+
+        if ($sort) {
+            if ($sort == '1') {
+                $service = $this->serviceModel->searchServicebyNewly($category, $location);
+            } else if ($sort == '2') {
+                $service = $this->serviceModel->searchServicebyCheapPrice($category, $location);
+            } else {
+                $service = $this->serviceModel->searchServicebyExpensivePrice($category, $location);
+            }
+        } else {
+            $service = $this->serviceModel->searchServicebyNewly($category, $location);
+        }
+
         $data = [
             'title' => 'Result | JustRent',
             'service' => $service->paginate(6, 'service'),
             'pager' => $this->serviceModel->pager,
             'num' => $this->bookModel->getOrder()->countAllResults(),
+            'category' => $categoryName,
+            'location' => $locationName,
+            'filter' => $this->filterModel->findAll(),
+            'sort' => $sort,
+            'cat' => $category,
+            'loc' => $location
         ];
 
         return view('Service/result', $data);
+    }
+
+    public static function GetAvgRate($args)
+    {
+        $reviewModel1 = new ReviewModel();
+        return $reviewModel1->getRate($args);
     }
 
     public function detail($slug = null)
@@ -78,9 +131,29 @@ class Service extends BaseController
             return redirect()->to("/Pages");
         }
 
+        $sort = $this->request->getVar('sort');
         $service = $this->serviceModel->getService($slug);
-        $review = $this->reviewModel->getReview($service->id);
 
+        if ($sort) {
+            if ($sort == '1') {
+                $review = $this->reviewModel->getReview($service->id);
+            } else if ($sort == '2') {
+                $review = $this->reviewModel->getReviewby1star($service->id);
+            } else if ($sort == '3') {
+                $review = $this->reviewModel->getReviewby2star($service->id);
+            } else if ($sort == '4') {
+                $review = $this->reviewModel->getReviewby3star($service->id);
+            } else if ($sort == '5') {
+                $review = $this->reviewModel->getReviewby4star($service->id);
+            } else {
+                $review = $this->reviewModel->getReviewby5star($service->id);
+            }
+        } else {
+            $review = $this->reviewModel->getReview($service->id);
+        }
+
+
+        // $review = $this->reviewModel->getReview($service->id);
 
         $data = [
             'title' => 'Detail Service | JustRent',
@@ -89,6 +162,9 @@ class Service extends BaseController
             'pager' => $this->reviewModel->pager,
             'avgRate' => $this->reviewModel->getRate($service->id),
             'num' => $this->bookModel->getOrder()->countAllResults(),
+            'slug' => $slug,
+            'revRate' => $this->reviewRate->findAll(),
+            'sort' => $sort,
         ];
 
         if (empty($data['service'])) {

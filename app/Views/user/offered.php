@@ -44,7 +44,7 @@
                     <div class="row g-0">
                         <div class="col-md text-center my-auto">
                             <img src="/Img/<?= user()->picture ?>" class="img-fluid" alt="profile" width="80px">
-                            <p class="card-text"><b><?= user()->username; ?></b></p>
+                            <p class="card-text"><b><?= user()->name; ?></b></p>
                             <form action="" method="POST">
                                 <?= csrf_field(); ?>
                                 <?php if ($services->serviceStatus == 1) : ?>
@@ -55,12 +55,12 @@
 
                             </form>
                         </div>
-                        <div class="col-md">
+                        <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title">IDR <?= $services->price; ?></h5>
                                 <p class="card-text"><b>About <?= $services->categoryValue; ?></b></p>
                                 <p class="card-text"><b><?= $services->locationValue; ?></b></p>
-                                <p class="card-text"><?= $services->description; ?></p>
+                                <p class="card-text overflow-auto" style="height: 120px;"><?= $services->description; ?></p>
                             </div>
                         </div>
                         <div class="col-md text-center my-auto">

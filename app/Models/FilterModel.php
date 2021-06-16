@@ -4,8 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CategoryModel extends Model
+class FilterModel extends Model
 {
-    protected $table = 'category';
+    protected $table = 'filter';
     protected $useTimestamps = true;
 }

@@ -8,7 +8,6 @@ class RateModel extends Model
 {
     protected $table = 'reviewRate';
     protected $useTimestamps = true;
-    // protected $allowedFields = ['username', 'name', 'dob', 'gender', 'address', 'picture', 'userId', 'slug'];
 
     public function getRateId($rate)
     {

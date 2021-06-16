@@ -8,14 +8,4 @@ class LocationModel extends Model
 {
     protected $table = 'location';
     protected $useTimestamps = true;
-    // protected $allowedFields = ['username', 'name', 'dob', 'gender', 'address', 'picture', 'userId', 'slug'];
-
-    // public function getUser($id = false)
-    // {
-    //     if ($id == false) {
-    //         return $this->findAll();
-    //     }
-
-    //     return $this->where(['id' => $id])->first();
-    // }
 }
