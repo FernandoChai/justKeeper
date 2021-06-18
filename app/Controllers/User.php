@@ -246,6 +246,12 @@ class User extends BaseController
                 'errors' => [
                     'required' => '{field} must be filled!'
                 ]
+            ],
+            'check' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'checkbox must be checked'
+                ]
             ]
 
         ])) {

@@ -63,6 +63,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input <?= ($validation->hasError('check')) ? 'is-invalid' : ''; ?>" type="checkbox" value="1" id="flexCheckDefault" name="check">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        I confirm that I have read, consent and agree to
+                        JustRent's <span class="text-info" style="cursor: pointer;">User Agreement</span> and
+                        <span class="text-info" style="cursor: pointer;">Privacy Policy</span> and I
+                        am of legal age.
+                    </label>
+                </div>
                 <button type="submit" class="btn btn-primary d-grid gap-2 col-12 mx-auto">Add</button>
             </form>
         </div>
