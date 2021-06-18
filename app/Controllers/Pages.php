@@ -23,14 +23,4 @@ class Pages extends BaseController
 
         return view('pages/home', $data);
     }
-
-    public function about()
-    {
-        $data = [
-            'title' => 'About | JustRent',
-            'num' => $this->bookModel->getOrder()->countAllResults(),
-        ];
-
-        return view('pages/about', $data);
-    }
 }

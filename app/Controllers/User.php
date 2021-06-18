@@ -22,6 +22,9 @@ class User extends BaseController
 
     public function index()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Profile | JustRent',
             'num' => $this->bookModel->getOrder()->countAllResults(),
@@ -32,6 +35,9 @@ class User extends BaseController
 
     public function edit()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Edit Profile | JustRent',
             'validation' => \config\Services::validation(),
@@ -41,8 +47,11 @@ class User extends BaseController
         return view('user/edit', $data);
     }
 
-    public function update($id)
+    public function update($id = 0)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $username = 'required|is_unique[users.username]';
 
         $servicelama = $this->UserModel->getUser(user()->id);
@@ -140,6 +149,9 @@ class User extends BaseController
 
     public function offered()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!(user()->name && user()->dob && user()->gender && user()->address)) :
             session()->setFlashdata('pesan', 'You must finish your profile first');
             return redirect()->to('/user');
@@ -191,6 +203,9 @@ class User extends BaseController
 
     public function add()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Add Service| JustRent',
             'validation' => \config\Services::validation(),
@@ -204,7 +219,9 @@ class User extends BaseController
 
     public function save()
     {
-
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$this->validate([
             'category' => [
                 'rules' => 'in_list[2,3,4]',

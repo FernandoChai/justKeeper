@@ -36,11 +36,12 @@ $routes->setAutoRoute(true);
 
 $routes->get('/', 'Pages::index');
 
+$routes->get('/Admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+
+
 $routes->delete('/Service/(:num)', 'Service::delete/$1');
-// $routes->get('/service/create', 'Service::create');
-// $routes->get('/Service/detail/(:segment)', 'Service::detail/$1');
-// $routes->delete('/service/(:num)', 'service::delete/$1');
-// $routes->get('/service/(:any)', 'Service::detail/$1');
+
 
 /*
  * --------------------------------------------------------------------

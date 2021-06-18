@@ -27,7 +27,9 @@ use \App\Controllers\Service; ?>
     </div>
     <div class="row">
         <div class="col-md mb-3">
-            <a href="/Service/search" class="mt-2 btn btn-secondary">Back to search</a>
+            <a href="/Service/search" class="mt-2 btn btn-secondary"><svg class="mb-1 me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                </svg>Back to search</a>
         </div>
         <?php if ($service != null) : ?>
             <div class="col-12 col-md-6 col-lg-3">
@@ -77,7 +79,9 @@ use \App\Controllers\Service; ?>
                                 </div>
                             </div>
                             <div class="row g-0 my-auto vertical-align">
-                                <p class="btn btn-danger mb-0">Book Now</p>
+                                <p class="btn btn-danger mb-0"><svg class="me-1 mb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                    </svg>Book Now</p>
                             </div>
                         </div>
                     </a>

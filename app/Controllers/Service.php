@@ -26,6 +26,9 @@ class Service extends BaseController
 
     public function search()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Search | JustRent',
             'validation' => \config\Services::validation(),
@@ -39,7 +42,9 @@ class Service extends BaseController
 
     public function result()
     {
-
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$this->request->getVar('page')) {
             if (!$this->validate([
                 'category' => [
@@ -121,12 +126,18 @@ class Service extends BaseController
 
     public static function GetAvgRate($args)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $reviewModel1 = new ReviewModel();
         return $reviewModel1->getRate($args);
     }
 
     public function detail($slug = null)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$slug) {
             return redirect()->to("/Pages");
         }
@@ -152,9 +163,6 @@ class Service extends BaseController
             $review = $this->reviewModel->getReview($service->id);
         }
 
-
-        // $review = $this->reviewModel->getReview($service->id);
-
         $data = [
             'title' => 'Detail Service | JustRent',
             'service' => $service,
@@ -176,6 +184,9 @@ class Service extends BaseController
 
     public function checkout($slug = null)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$slug) {
             return redirect()->to("/Pages");
         }
@@ -195,6 +206,9 @@ class Service extends BaseController
 
     public function save()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$this->validate([
             'address' => [
                 'rules' => 'required',
@@ -227,6 +241,9 @@ class Service extends BaseController
 
     public function delete($id)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         $this->serviceModel->delete($id);
         session()->setFlashdata('pesan', 'Service Success delete!');
         return redirect()->to('/User/offered');
@@ -234,6 +251,9 @@ class Service extends BaseController
 
     public function edit($slug = null)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$slug) {
             return redirect()->to("/Pages");
         }
@@ -251,8 +271,12 @@ class Service extends BaseController
     }
 
 
-    public function update($id)
+    public function update($id = 0)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
+
         if (!$this->validate([
             'category' => [
                 'rules' => 'in_list[2,3,4]',
@@ -300,6 +324,9 @@ class Service extends BaseController
 
     public function review($slug = null)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!(user()->name && user()->dob && user()->gender && user()->address)) :
             session()->setFlashdata('pesan', 'You must finish your profile first before post a review');
             return redirect()->to('/user');
@@ -329,6 +356,9 @@ class Service extends BaseController
 
     public function comment($slug = null)
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
         if (!$slug) {
             return redirect()->to('/Pages');
         }

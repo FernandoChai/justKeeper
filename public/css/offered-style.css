@@ -5,3 +5,13 @@ body {
 .vertical-center {
   align-self: center;
 }
+
+.close {
+  border: none;
+  background-color: white;
+  font-size: 30px;
+}
+
+.close span:hover {
+  font-weight: bold;
+}

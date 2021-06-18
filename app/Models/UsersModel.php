@@ -18,4 +18,30 @@ class UsersModel extends Model
 
         return $this->where(['id' => $id])->first();
     }
+
+    public function getUserOnlyById($id = false)
+    {
+        return $this->where(['id' => $id])->first();
+    }
+
+    public function search($key)
+    {
+        $builder = $this->table('user');
+        $builder->select('*');
+        $builder->like('username', $key);
+        $builder->join('auth_groups_users', 'user_id = id');
+        $builder->where('group_id', '2');
+        return $builder;
+    }
+
+
+    public function getAllUser()
+    {
+        $builder = $this->table('user');
+        $builder->select('*');
+        $builder->join('auth_groups_users', 'user_id = id');
+        $builder->where('group_id', '2');
+        $builder->orderBy('username', 'ASC');
+        return $builder;
+    }
 }

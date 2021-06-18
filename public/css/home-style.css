@@ -17,3 +17,7 @@ body {
 .index {
   z-index: 1;
 }
+
+.admin-btn {
+  border: 2px solid;
+}

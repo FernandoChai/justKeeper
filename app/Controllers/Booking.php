@@ -14,6 +14,10 @@ class Booking extends BaseController
 
     public function index()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
+
         $book = $this->bookModel->getBooking();
 
         $data = [
@@ -28,6 +32,9 @@ class Booking extends BaseController
 
     public function confirmation()
     {
+        if (in_groups('admin')) {
+            return redirect()->to('/');
+        }
 
         if ($this->request->getvar('confirms') == '1') {
 

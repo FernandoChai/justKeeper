@@ -1,0 +1,14 @@
+.table tr * {
+  vertical-align: middle;
+}
+
+.admin-btn a {
+  background-color: deepskyblue;
+  border-radius: 8px;
+  color: white;
+  padding: 3px 10px 3px 10px;
+  text-decoration: none;
+}
+.admin-btn a:hover {
+  padding: 5px 15px 5px 15px;
+}

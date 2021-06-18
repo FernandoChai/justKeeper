@@ -9,3 +9,11 @@ function previewPic() {
     imgPreview.src = e.target.result;
   };
 }
+
+// $(document).ready(function () {
+//   $("#service-delete").on("submit", function (e) {
+//     $("#deleteModal").modal("show");
+//     return false;
+//     // e.preventDefault();
+//   });
+// });
