@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2021 at 04:54 PM
+-- Generation Time: Jun 18, 2021 at 02:22 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -53,7 +53,10 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (11, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '2cb11e6c098db296b7da8c253951f525', '2021-05-26 01:25:45'),
 (12, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '3dca744519c8f6affe8f445c43253557', '2021-05-26 01:28:22'),
 (13, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '5bea9a5da60b4bb27128d8fd5507fb7c', '2021-05-28 05:07:32'),
-(14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '3a7255f8b7362df15e73c051dc49d28a', '2021-05-28 05:08:49');
+(14, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '3a7255f8b7362df15e73c051dc49d28a', '2021-05-28 05:08:49'),
+(15, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '448321ef8bf14c9b92ced8664b60e700', '2021-06-10 08:45:13'),
+(16, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36', '52a1c7ce921cc4454467266595c687ff', '2021-06-16 08:41:56'),
+(17, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36', '31361043827b87c05fd564e4b0499290', '2021-06-16 09:22:46');
 
 -- --------------------------------------------------------
 
@@ -66,6 +69,14 @@ CREATE TABLE `auth_groups` (
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups`
+--
+
+INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Site Administrator'),
+(2, 'user', 'Regular User');
 
 -- --------------------------------------------------------
 
@@ -88,6 +99,16 @@ CREATE TABLE `auth_groups_users` (
   `group_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `auth_groups_users`
+--
+
+INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
+(1, 20),
+(2, 1),
+(2, 2),
+(2, 18);
 
 -- --------------------------------------------------------
 
@@ -168,7 +189,220 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (57, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-28 05:12:01', 1),
 (58, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-28 05:12:35', 1),
 (59, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-28 05:12:46', 1),
-(60, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-28 05:13:05', 1);
+(60, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-28 05:13:05', 1),
+(61, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 09:59:31', 1),
+(62, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 10:04:00', 1),
+(63, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 10:05:35', 1),
+(64, '::1', 'fernando.chai76@gmail.com', NULL, '2021-05-31 10:34:46', 0),
+(65, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-31 10:35:01', 1),
+(66, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 10:35:45', 1),
+(67, '::1', 'fernando.chai76@gmail.com', NULL, '2021-05-31 10:59:13', 0),
+(68, '::1', 'fchai69@gmail.com', 2, '2021-05-31 10:59:27', 1),
+(69, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-31 11:00:24', 1),
+(70, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 11:02:17', 1),
+(71, '::1', 'fchai69@gmail.com', 2, '2021-05-31 11:02:40', 1),
+(72, '::1', 'fernando.chai76@gmail.com', 17, '2021-05-31 11:02:59', 1),
+(73, '::1', 'fernando.chai112@gmail.com', 1, '2021-05-31 11:03:16', 1),
+(74, '::1', 'fchai69@gmail.com', 2, '2021-05-31 11:03:49', 1),
+(75, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-05 05:39:40', 1),
+(76, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-05 05:48:23', 1),
+(77, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-05 05:48:35', 1),
+(78, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-05 05:48:50', 1),
+(79, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-05 05:49:21', 1),
+(80, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 08:44:55', 0),
+(81, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 08:45:31', 1),
+(82, '::1', 'fchai69@gmail.com', NULL, '2021-06-10 08:47:54', 0),
+(83, '::1', 'fchai69@gmail.com', 2, '2021-06-10 08:47:59', 1),
+(84, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 08:48:24', 1),
+(85, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-10 08:53:05', 0),
+(86, '::1', 'fchai69@gmail.com', 2, '2021-06-10 08:53:12', 1),
+(87, '::1', 'fchai69@gmail.com', NULL, '2021-06-10 08:53:37', 0),
+(88, '::1', 'fchai69@gmail.com', 2, '2021-06-10 08:53:42', 1),
+(89, '::1', 'fchai69@gmail.com', 2, '2021-06-10 08:56:09', 1),
+(90, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 08:56:26', 1),
+(91, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 08:59:53', 1),
+(92, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 09:03:19', 1),
+(93, '::1', 'fchai69@gmail.com', 2, '2021-06-10 13:18:59', 1),
+(94, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-10 13:19:29', 0),
+(95, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-10 13:19:34', 0),
+(96, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 13:19:39', 1),
+(97, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-10 13:20:09', 1),
+(98, '::1', 'fchai69@gmail.com', 2, '2021-06-10 13:20:22', 1),
+(99, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-10 13:20:37', 0),
+(100, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 13:20:41', 1),
+(101, '::1', 'fchai69@gmail.com', 2, '2021-06-10 13:21:20', 1),
+(102, '::1', 'fchai69@gmail.com', 2, '2021-06-10 13:22:14', 1),
+(103, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-10 13:22:28', 1),
+(104, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:13:58', 1),
+(105, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:14:00', 1),
+(106, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 07:20:31', 1),
+(107, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:20:59', 1),
+(108, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-11 07:21:09', 1),
+(109, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:21:30', 1),
+(110, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-11 07:23:13', 0),
+(111, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:23:19', 1),
+(112, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 07:23:35', 1),
+(113, '::1', 'fchai69@gmail.com', NULL, '2021-06-11 07:28:43', 0),
+(114, '::1', 'fchai69@gmail.com', 2, '2021-06-11 07:28:48', 1),
+(115, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-11 10:17:15', 0),
+(116, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 10:17:27', 1),
+(117, '::1', 'fchai69@gmail.com', 2, '2021-06-11 10:17:35', 1),
+(118, '::1', 'fchai69@gmail.com', 2, '2021-06-11 10:18:41', 1),
+(119, '::1', 'fchai69@gmail.com', NULL, '2021-06-11 10:19:11', 0),
+(120, '::1', 'fchai69@gmail.com', 2, '2021-06-11 10:19:17', 1),
+(121, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 10:27:13', 1),
+(122, '::1', 'fchai69@gmail.com', 2, '2021-06-11 10:27:41', 1),
+(123, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 10:27:57', 1),
+(124, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-11 11:31:16', 0),
+(125, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-11 11:31:23', 1),
+(126, '::1', 'fchai69@gmail.com', 2, '2021-06-11 11:31:44', 1),
+(127, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-11 11:31:57', 1),
+(128, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 13:10:40', 1),
+(129, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-11 13:11:00', 1),
+(130, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-11 13:11:28', 1),
+(131, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-13 04:06:44', 1),
+(132, '::1', 'fchai69@gmail.com', 2, '2021-06-15 09:14:52', 1),
+(133, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:02:03', 1),
+(134, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-15 14:02:16', 0),
+(135, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-15 14:02:21', 1),
+(136, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-15 14:02:31', 1),
+(137, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:03:00', 1),
+(138, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-15 14:12:26', 0),
+(139, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-15 14:12:31', 1),
+(140, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:12:42', 1),
+(141, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-15 14:21:50', 0),
+(142, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-15 14:21:57', 1),
+(143, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:22:11', 1),
+(144, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-15 14:22:21', 1),
+(145, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:22:39', 1),
+(146, '::1', 'fchai69@gmail.com', NULL, '2021-06-15 14:23:10', 0),
+(147, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:23:15', 1),
+(148, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-15 14:24:18', 1),
+(149, '::1', 'fchai69@gmail.com', 2, '2021-06-15 14:25:14', 1),
+(150, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-15 14:25:40', 1),
+(151, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-16 06:56:57', 0),
+(152, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-16 06:57:02', 1),
+(153, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-16 06:58:44', 0),
+(154, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-16 06:58:49', 1),
+(155, '::1', 'instagramfernando1@gmail.com', 19, '2021-06-16 08:42:11', 1),
+(156, '::1', 'fchai69@gmail.com', 2, '2021-06-16 08:42:53', 1),
+(157, '::1', 'instagramfernando1@gmail.com', 19, '2021-06-16 08:46:07', 1),
+(158, '::1', 'fchai69@gmail.com', NULL, '2021-06-16 08:49:33', 0),
+(159, '::1', 'fchai69@gmail.com', 2, '2021-06-16 08:49:38', 1),
+(160, '::1', 'fchai69@gmail.com', 2, '2021-06-16 08:50:04', 1),
+(161, '::1', 'instagramfernando1@gmail.com', 19, '2021-06-16 08:50:36', 1),
+(162, '::1', 'fchai69@gmail.com', NULL, '2021-06-16 09:18:22', 0),
+(163, '::1', 'fchai69@gmail.com', 2, '2021-06-16 09:18:27', 1),
+(164, '::1', 'instagramfernando1@gmail.com', NULL, '2021-06-16 09:18:48', 0),
+(165, '::1', 'instagramfernando1@gmail.com', NULL, '2021-06-16 09:19:00', 0),
+(166, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 09:22:55', 1),
+(167, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-16 09:29:23', 1),
+(168, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 09:33:41', 1),
+(169, '::1', 'fchai69@gmail.com', NULL, '2021-06-16 09:36:46', 0),
+(170, '::1', 'fchai69@gmail.com', 2, '2021-06-16 09:36:52', 1),
+(171, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 09:37:21', 1),
+(172, '::1', 'instagramfernando1@gmail.com', NULL, '2021-06-16 10:57:37', 0),
+(173, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 10:57:43', 1),
+(174, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 11:01:34', 1),
+(175, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-16 11:13:16', 1),
+(176, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 11:13:37', 1),
+(177, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 11:32:16', 1),
+(178, '::1', 'fchai69@gmail.com', 2, '2021-06-16 11:33:47', 1),
+(179, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 11:36:52', 1),
+(180, '::1', 'fchai69@gmail.com', 2, '2021-06-16 11:41:37', 1),
+(181, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 11:47:03', 1),
+(182, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 12:08:06', 1),
+(183, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 12:17:19', 1),
+(184, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 12:17:47', 1),
+(185, '::1', 'fchai69@gmail.com', 2, '2021-06-16 12:19:54', 1),
+(186, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 12:20:07', 1),
+(187, '::1', 'fchai69@gmail.com', 2, '2021-06-16 12:22:58', 1),
+(188, '::1', 'fchai69@gmail.com', 2, '2021-06-16 12:23:15', 1),
+(189, '::1', 'fchai69@gmail.com', 2, '2021-06-16 12:26:19', 1),
+(190, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 12:27:13', 1),
+(191, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 13:36:23', 1),
+(192, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 13:37:08', 1),
+(193, '::1', 'fchai69@gmail.com', NULL, '2021-06-16 13:41:10', 0),
+(194, '::1', 'fchai69@gmail.com', 2, '2021-06-16 13:41:15', 1),
+(195, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 13:41:26', 1),
+(196, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-16 13:58:07', 1),
+(197, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-16 13:58:34', 1),
+(198, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 01:46:14', 1),
+(199, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 02:26:51', 0),
+(200, '::1', 'fchai69@gmail.com', 2, '2021-06-17 02:26:55', 1),
+(201, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 02:29:29', 1),
+(202, '::1', 'fchai69@gmail.com', 2, '2021-06-17 02:30:59', 1),
+(203, '::1', 'instagramfernando1@gmail.com', NULL, '2021-06-17 02:33:12', 0),
+(204, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 02:33:17', 1),
+(205, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 03:23:58', 0),
+(206, '::1', 'fchai69@gmail.com', 2, '2021-06-17 03:24:03', 1),
+(207, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-17 03:28:19', 1),
+(208, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-17 03:31:56', 1),
+(209, '::1', 'fchai69@gmail.com', 2, '2021-06-17 03:34:43', 1),
+(210, '::1', 'fchai69@gmail.com', 2, '2021-06-17 03:36:23', 1),
+(211, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-17 03:36:34', 1),
+(212, '::1', 'fchai69@gmail.com', 2, '2021-06-17 03:38:12', 1),
+(213, '::1', 'fernando chai', NULL, '2021-06-17 03:40:22', 0),
+(214, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 03:40:26', 1),
+(215, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 03:49:50', 0),
+(216, '::1', 'fchai69@gmail.com', 2, '2021-06-17 03:49:55', 1),
+(217, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-17 03:50:23', 1),
+(218, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 03:50:40', 1),
+(219, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 08:25:30', 1),
+(220, '::1', 'fchai69@gmail.com', 2, '2021-06-17 08:30:17', 1),
+(221, '::1', 'fchai69@gmail.com', 2, '2021-06-17 08:31:30', 1),
+(222, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 08:32:32', 1),
+(223, '::1', 'fchai69@gmail.com', 2, '2021-06-17 11:12:11', 1),
+(224, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 11:12:23', 1),
+(225, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 11:17:18', 1),
+(226, '::1', 'fchai69@gmail.com', 2, '2021-06-17 12:33:22', 1),
+(227, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 12:34:06', 1),
+(228, '::1', 'fchai69@gmail.com', 2, '2021-06-17 12:37:25', 1),
+(229, '::1', 'fernando chai', NULL, '2021-06-17 12:42:24', 0),
+(230, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 12:42:29', 1),
+(231, '::1', 'fchai69@gmail.com', 2, '2021-06-17 12:46:13', 1),
+(232, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 12:47:07', 1),
+(233, '::1', 'fchai69@gmail.com', 2, '2021-06-17 12:47:36', 1),
+(234, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 13:02:26', 1),
+(235, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 13:07:53', 0),
+(236, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:07:57', 1),
+(237, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 13:09:09', 1),
+(238, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 13:11:41', 0),
+(239, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:11:46', 1),
+(240, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 13:13:47', 1),
+(241, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:14:41', 1),
+(242, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 13:15:15', 1),
+(243, '::1', 'fernando.chai112@gmail.com', NULL, '2021-06-17 13:19:49', 0),
+(244, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-17 13:19:56', 1),
+(245, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:26:09', 1),
+(246, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-17 13:45:55', 1),
+(247, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:49:02', 1),
+(248, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 13:53:00', 0),
+(249, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:53:05', 1),
+(250, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 13:57:11', 0),
+(251, '::1', 'fchai69@gmail.com', NULL, '2021-06-17 13:57:16', 0),
+(252, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:57:22', 1),
+(253, '::1', 'fchai69@gmail.com', 2, '2021-06-17 13:59:26', 1),
+(254, '::1', 'instagramfernando1@gmail.com', NULL, '2021-06-17 13:59:45', 0),
+(255, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 13:59:51', 1),
+(256, '::1', 'fchai69@gmail.com', 2, '2021-06-17 14:00:05', 1),
+(257, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-17 14:05:16', 1),
+(258, '::1', 'fchai69@gmail.com', 2, '2021-06-17 14:05:32', 1),
+(259, '::1', 'fchai69@gmail.com', 2, '2021-06-18 05:28:08', 1),
+(260, '::1', 'fchai69@gmail.com', 2, '2021-06-18 05:30:30', 1),
+(261, '::1', 'fchai69@gmail.com', 2, '2021-06-18 06:14:53', 1),
+(262, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 06:34:55', 1),
+(263, '::1', 'fchai69@gmail.com', 2, '2021-06-18 06:59:30', 1),
+(264, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:00:06', 1),
+(265, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:03:42', 1),
+(266, '::1', 'fernando.chai76@gmail.com', NULL, '2021-06-18 07:03:54', 0),
+(267, '::1', 'fernando.chai76@gmail.com', 18, '2021-06-18 07:03:59', 1),
+(268, '::1', 'fernando.chai112@gmail.com', 1, '2021-06-18 07:04:11', 1),
+(269, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:04:27', 1),
+(270, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:04:51', 1),
+(271, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:10:50', 1),
+(272, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:16:15', 1),
+(273, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:21:14', 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +436,8 @@ CREATE TABLE `auth_reset_attempts` (
 --
 
 INSERT INTO `auth_reset_attempts` (`id`, `email`, `ip_address`, `user_agent`, `token`, `created_at`) VALUES
-(1, 'fernando.chai76@gmail.com', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '2a7c662a3cef3ad8feedc038c12b7e1e', '2021-05-26 01:29:08');
+(1, 'fernando.chai76@gmail.com', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', '2a7c662a3cef3ad8feedc038c12b7e1e', '2021-05-26 01:29:08'),
+(2, 'fernando.chai76@gmail.com', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36', '4c572f2e4ee162f2add912dc31d16a1c', '2021-06-10 08:59:47');
 
 -- --------------------------------------------------------
 
@@ -251,11 +486,12 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `status`, `address`, `paymentMethod`, `userId`, `serviceId`, `created_at`, `updated_at`) VALUES
-(1, 5, 'bumi', 'Cash', 2, 1, '2021-05-25 06:40:04', '2021-05-27 10:00:30'),
-(2, 3, 'eefef', 'Cash', 2, 1, '2021-05-25 06:40:57', '2021-05-26 12:20:27'),
-(3, 3, 'mars', 'Cash', 2, 1, '2021-05-25 07:24:31', '2021-05-26 12:20:22'),
-(5, 3, 'Jl. masuka darat gang aneka 2 nomor 5', 'Cash', 2, 1, '2021-05-25 12:08:59', '2021-05-26 12:20:25'),
-(7, 5, 'jalan patimura nomor 5 ', 'Cash', 17, 1, '2021-05-28 05:11:40', '2021-05-28 05:27:19');
+(21, 5, 'jalan suka maju', 'Cash', 18, 17, '2021-06-11 13:10:51', '2021-06-11 13:11:37'),
+(22, 5, 'jalan kebon jeruk nomor 5', 'Cash', 2, 20, '2021-06-15 14:01:32', '2021-06-15 14:22:52'),
+(23, 5, 'tarumanegara', 'Cash', 2, 17, '2021-06-15 14:12:18', '2021-06-15 14:23:26'),
+(27, 5, 'jalan manggis no 5', 'Cash', 2, 20, '2021-06-17 03:35:53', '2021-06-17 03:39:08'),
+(28, 5, 'jalan kebon jeruk gang kecil nomor 3', 'Cash', 2, 20, '2021-06-17 13:45:34', '2021-06-17 13:51:13'),
+(29, 1, 'jalan merpati gang manggis nomor 5 rt 9/rw 12', 'Cash', 2, 17, '2021-06-18 06:59:58', '2021-06-18 07:04:18');
 
 -- --------------------------------------------------------
 
@@ -299,6 +535,26 @@ INSERT INTO `category` (`categoryId`, `categoryValue`) VALUES
 (2, 'Chef'),
 (3, 'Electronic Service'),
 (4, 'House Keeper');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filter`
+--
+
+CREATE TABLE `filter` (
+  `filterId` int(11) NOT NULL,
+  `filterName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `filter`
+--
+
+INSERT INTO `filter` (`filterId`, `filterName`) VALUES
+(1, 'Newly'),
+(2, 'Cheap to expensive'),
+(3, 'Expensive to cheap');
 
 -- --------------------------------------------------------
 
@@ -367,10 +623,11 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`reviewId`, `reviewRate`, `userId`, `serviceId`, `comment`, `created_at`, `updated_at`) VALUES
-(2, 3, 1, 14, 'pelayanan kurang memuaskan', NULL, NULL),
-(3, 4, 2, 1, 'mantap', NULL, NULL),
-(6, 5, 2, 1, 'wowowkfwofwk enak', '2021-05-27 10:00:30', '2021-05-27 10:00:30'),
-(8, 6, 17, 1, 'enak bangett', '2021-05-28 05:27:19', '2021-05-28 05:27:19');
+(16, 3, 18, 17, 'kurang memuaskan', '2021-06-11 13:11:37', '2021-06-11 13:11:37'),
+(17, 5, 2, 20, 'sangat menarik ', '2021-06-15 14:22:52', '2021-06-15 14:22:52'),
+(18, 6, 2, 17, 'wow sangat enak sekali', '2021-06-15 14:23:26', '2021-06-15 14:23:26'),
+(21, 6, 2, 20, 'Wow Mantap jiwa', '2021-06-17 03:39:08', '2021-06-17 03:39:08'),
+(22, 3, 2, 20, 'saya kecewa, pelayanan yang diberikan kurang ramah', '2021-06-17 13:51:13', '2021-06-17 13:51:13');
 
 -- --------------------------------------------------------
 
@@ -418,9 +675,9 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `category`, `location`, `price`, `created_at`, `updated_at`, `description`, `userId`, `serviceStatus`) VALUES
-(1, 2, 2, 200000, '0000-00-00 00:00:00', '2021-05-27 06:45:12', 'Di sini, saya akan menyediakan menu makanan berupa:\r\n-salad\r\n-bebek peking\r\n- ice cream', 1, 0),
-(14, 4, 5, 200000, '2021-05-25 10:35:15', '2021-05-27 10:23:32', 'tukang kebun', 2, 0),
-(16, 2, 2, 500000, '2021-05-28 05:10:55', '2021-05-28 05:10:55', 'saya adalah mantan master chef 2016. saya dapat membawakan anda menu-menu nusantara seperti rendang, sate dan lontong sayur.', 17, 0);
+(17, 2, 2, 6000000, '2021-06-05 06:08:41', '2021-06-17 03:31:23', 'Saya merupakan finalis master chef s6. Di sini, saya akan membawakan beberapa menu makanan berupa:\r\n- Fruid salad\r\n- Lontong sayur\r\n- Wine\r\n- Wagyu A5 premium', 1, 1),
+(20, 2, 2, 5500000, '2021-06-13 10:00:02', '2021-06-17 03:34:28', 'Saya lulusan Le Cordon Bleu sebagai seorang chef profesional. Saya akan membawakan beberapa menu makanan seperti:\r\n- Banana cake\r\n- Pudding jelly\r\n- Special ramen\r\n- Dim Sum\r\n- Tom Yum', 18, 1),
+(23, 2, 2, 50000000, '2021-06-18 06:20:14', '2021-06-18 06:20:44', 'saya adalah seorang chef yang mahir dalam membuat aneka menu makanan nusantara. Berikut merupakan beberapa makanan yang akan saya sajikan kepada anda: - tahu mercon -rujak cingur - es nona - rendang - pudding - soto babat', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -457,9 +714,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `name`, `slug`, `dob`, `gender`, `address`, `picture`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'fernando.chai112@gmail.com', 'fernando', 'atong ganteng', 'atong-ganteng', '2021-05-01', 'Male', 'bumi', '1621839277_05995e09d4cee1c4ad00.jpg', '$2y$10$iQRtCbwTbluz/h1oetaIf.9od11woilba1aKhJOzW6Mp4D.qPJsxO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-22 13:59:28', '2021-05-25 02:37:20', NULL),
-(2, 'fchai69@gmail.com', 'nana', 'nano', 'nano', '2021-05-08', 'Male', 'sukarta', 'profile.png', '$2y$10$tFy5OfABiKjJA2Rg/9XzQul3DVKEPTen44IMOS0lfe4gz0IChQ33G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-23 05:43:42', '2021-05-23 14:11:48', NULL),
-(17, 'fernando.chai76@gmail.com', 'ahae', 'ace', 'ace', '2007-06-13', 'Male', 'jalan patimura nomor 5 ', '1622196600_e61f6d2ae01ee07671e5.jpg', '$2y$10$3NFtW7za.5rNGAUpjcSWMO1GF4IqiAbdxMOTLCRmn.I5zw73Sq28y', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-28 05:08:32', '2021-05-28 05:10:00', NULL);
+(1, 'fernando.chai112@gmail.com', 'fernando', 'Fernando Mandoroso', 'fernando-mandoroso', '2021-05-01', 'Male', 'Jalan mt haryono no 44', '1623954354_04aa26d80587616bf236.jpg', '$2y$10$iQRtCbwTbluz/h1oetaIf.9od11woilba1aKhJOzW6Mp4D.qPJsxO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-22 13:59:28', '2021-06-17 13:25:54', NULL),
+(2, 'fchai69@gmail.com', 'nane', 'nano nano', 'nano-nano', '2021-05-08', 'Female', 'sukarta', 'profile.png', '$2y$10$tFy5OfABiKjJA2Rg/9XzQul3DVKEPTen44IMOS0lfe4gz0IChQ33G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-23 05:43:42', '2021-06-16 11:42:53', NULL),
+(18, 'fernando.chai76@gmail.com', 'aceng', 'ace', 'ace', '2021-06-16', 'Male', 'jalan patimura nomor 5 ', '1623333514_344d378f7eaa82c778fc.jpg', '$2y$10$wqkQMEgMBetQ5CCse1tpsenY0jqV9Zxi6ow95PfKvPrKi9rbqh6.y', NULL, '2021-06-10 08:59:48', NULL, NULL, NULL, NULL, 1, 0, '2021-06-10 08:44:41', '2021-06-10 08:59:48', NULL),
+(20, 'instagramfernando1@gmail.com', 'Fernando Chai', 'Fernando Chai', 'fernando-chai', '2021-06-17', 'Male', 'Jalan ponogoro nomor 77', '1623948010_d465dc73e8d194bd439d.jpg', '$2y$10$BsOQLIFDJRBNCtvxKKqJHOiCncLEevavlsr1qTrpAUCKP8j5hDr8K', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-16 09:22:29', '2021-06-17 12:36:10', NULL);
 
 --
 -- Indexes for dumped tables
@@ -548,6 +806,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`categoryId`);
 
 --
+-- Indexes for table `filter`
+--
+ALTER TABLE `filter`
+  ADD PRIMARY KEY (`filterId`);
+
+--
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
@@ -599,19 +863,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -623,7 +887,7 @@ ALTER TABLE `auth_permissions`
 -- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_tokens`
@@ -635,7 +899,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `bookingstatus`
@@ -648,6 +912,12 @@ ALTER TABLE `bookingstatus`
 --
 ALTER TABLE `category`
   MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `filter`
+--
+ALTER TABLE `filter`
+  MODIFY `filterId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -665,7 +935,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `reviewrate`
@@ -677,13 +947,13 @@ ALTER TABLE `reviewrate`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
