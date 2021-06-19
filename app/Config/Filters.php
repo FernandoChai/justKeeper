@@ -66,9 +66,10 @@ class Filters extends BaseConfig
 		'login' => ['before' => [
 			'Service/search', '/', 'Service/result', 'Service', 'Service/detail', 'Service/checkout', 'Service/save', 'Service/delete', 'Service/edit', 'Service/update',
 			'Service/review', 'Service/comment',
-			'Pages',
-			'User/add', 'User/edit', 'User/offered', 'User', 'User/update', 'User/save',
-			'Booking', 'Booking/confirmation', ''
+			'Pages', 'Pages/index',
+			'User/add', 'User/edit', 'User/offered', 'User', 'User/update', 'User/save', 'User/index',
+			'Booking', 'Booking/confirmation', 'Booking/index',
+			'Admin', 'Admin/index', 'Admin/detail', 'Admin/service', 'Admin/booking', 'Admin/edit', 'Admin/update'
 		]],
 	];
 }
