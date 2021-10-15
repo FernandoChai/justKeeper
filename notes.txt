@@ -1,0 +1,2 @@
+Note:
+Sebelum menjalankan aplikasinya, diharapkan telah mengimport database yang telah disediakan ke phpmyadmin.
