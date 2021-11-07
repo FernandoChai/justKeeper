@@ -21,7 +21,7 @@ class Booking extends BaseController
         $book = $this->bookModel->getBooking();
 
         $data = [
-            'title' => 'Booking | JustRent',
+            'title' => 'Booking | JustKeeper',
             'book' => $book->paginate(3, 'book'),
             'pager' => $this->bookModel->pager,
             'num' => $this->bookModel->getOrder()->countAllResults(),

@@ -35,7 +35,7 @@ class Admin extends BaseController
         }
 
         $data = [
-            'title' => 'User List | JustRent',
+            'title' => 'User List | JustKeeper',
             'allUser' => $allUser->paginate(5, 'users'),
             'pager' => $this->userModel->pager,
             'currPage' => $currentPage
@@ -57,7 +57,7 @@ class Admin extends BaseController
         }
 
         $data = [
-            'title' => 'User Detail | JustRent',
+            'title' => 'User Detail | JustKeeper',
             'userDetail' => $userData,
 
         ];
@@ -87,7 +87,7 @@ class Admin extends BaseController
         }
 
         $data = [
-            'title' => 'Service | JustRent',
+            'title' => 'Service | JustKeeper',
             'id' => $id,
             'service' => $service,
             'avgRate' => $rate
@@ -113,7 +113,7 @@ class Admin extends BaseController
 
 
         $data = [
-            'title' => 'Booking History | JustRent',
+            'title' => 'Booking History | JustKeeper',
             'book' => $book->paginate(5, 'book'),
             'id' => $id,
             'pager' => $this->bookModel->pager,
@@ -130,7 +130,7 @@ class Admin extends BaseController
         }
 
         $data = [
-            'title' => 'Edit Profile | JustRent',
+            'title' => 'Edit Profile | JustKeeper',
             'validation' => \config\Services::validation(),
         ];
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2021 at 02:22 PM
+-- Generation Time: Nov 07, 2021 at 09:00 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `justrent`
+-- Database: `justkeeper`
 --
 
 -- --------------------------------------------------------
@@ -402,7 +402,46 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (270, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:04:51', 1),
 (271, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:10:50', 1),
 (272, '::1', 'instagramfernando1@gmail.com', 20, '2021-06-18 07:16:15', 1),
-(273, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:21:14', 1);
+(273, '::1', 'fchai69@gmail.com', 2, '2021-06-18 07:21:14', 1),
+(274, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 03:38:57', 1),
+(275, '::1', 'instagramfernando1@gmail.com', NULL, '2021-10-30 03:39:11', 0),
+(276, '::1', 'instagramfernando1@gmail.com', 20, '2021-10-30 03:39:17', 1),
+(277, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 03:39:51', 1),
+(278, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 03:44:09', 1),
+(279, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 04:08:39', 1),
+(280, '::1', 'fchai69@gmail.com', 2, '2021-10-30 04:18:32', 1),
+(281, '::1', 'fernando.chai76@gmail.com', NULL, '2021-10-30 04:22:27', 0),
+(282, '::1', 'fernando.chai76@gmail.com', 18, '2021-10-30 04:22:32', 1),
+(283, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 04:35:59', 1),
+(284, '::1', 'fernando.chai112@gmail.com', NULL, '2021-10-30 04:41:04', 0),
+(285, '::1', 'fernando.chai112@gmail.com', 1, '2021-10-30 04:41:08', 1),
+(286, '::1', 'instagramfernando1@gmail.com', 20, '2021-10-30 04:44:29', 1),
+(287, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 08:58:24', 1),
+(288, '::1', 'fchai69@gmail.com', 2, '2021-11-01 09:04:01', 1),
+(289, '::1', 'fernando.chai112@gmail.com', NULL, '2021-11-01 20:45:15', 0),
+(290, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 20:45:20', 1),
+(291, '::1', 'fchai69@gmail.com', 2, '2021-11-01 20:48:37', 1),
+(292, '::1', 'fernando.chai76@gmail.com', NULL, '2021-11-01 20:48:47', 0),
+(293, '::1', 'fernando.chai76@gmail.com', NULL, '2021-11-01 20:48:53', 0),
+(294, '::1', 'fernando.chai76@gmail.com', 18, '2021-11-01 20:48:58', 1),
+(295, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 20:50:10', 1),
+(296, '::1', 'instagramfernando1@gmail.com', NULL, '2021-11-01 20:50:17', 0),
+(297, '::1', 'instagramfernando1@gmail.com', 20, '2021-11-01 20:52:08', 1),
+(298, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:00:33', 1),
+(299, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:10:02', 1),
+(300, '::1', 'fernando.chai76@gmail.com', 18, '2021-11-01 21:11:30', 1),
+(301, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:12:17', 1),
+(302, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:14:30', 1),
+(303, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:17:59', 1),
+(304, '::1', 'fernando.chai76@gmail.com', 18, '2021-11-01 21:20:24', 1),
+(305, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:21:10', 1),
+(306, '::1', 'instagramfernando1@gmail.com', 20, '2021-11-01 21:21:32', 1),
+(307, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:21:52', 1),
+(308, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:45:00', 1),
+(309, '::1', 'fernando.chai76@gmail.com', 18, '2021-11-01 21:47:24', 1),
+(310, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:47:58', 1),
+(311, '::1', 'instagramfernando1@gmail.com', 20, '2021-11-01 21:48:30', 1),
+(312, '::1', 'fernando.chai112@gmail.com', 1, '2021-11-01 21:49:18', 1);
 
 -- --------------------------------------------------------
 
@@ -486,12 +525,10 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `status`, `address`, `paymentMethod`, `userId`, `serviceId`, `created_at`, `updated_at`) VALUES
-(21, 5, 'jalan suka maju', 'Cash', 18, 17, '2021-06-11 13:10:51', '2021-06-11 13:11:37'),
 (22, 5, 'jalan kebon jeruk nomor 5', 'Cash', 2, 20, '2021-06-15 14:01:32', '2021-06-15 14:22:52'),
-(23, 5, 'tarumanegara', 'Cash', 2, 17, '2021-06-15 14:12:18', '2021-06-15 14:23:26'),
 (27, 5, 'jalan manggis no 5', 'Cash', 2, 20, '2021-06-17 03:35:53', '2021-06-17 03:39:08'),
 (28, 5, 'jalan kebon jeruk gang kecil nomor 3', 'Cash', 2, 20, '2021-06-17 13:45:34', '2021-06-17 13:51:13'),
-(29, 1, 'jalan merpati gang manggis nomor 5 rt 9/rw 12', 'Cash', 2, 17, '2021-06-18 06:59:58', '2021-06-18 07:04:18');
+(30, 5, 'Jalan Kebon jeruk nomor 21', 'Cash', 1, 20, '2021-11-01 21:45:54', '2021-11-01 21:48:11');
 
 -- --------------------------------------------------------
 
@@ -532,9 +569,8 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`categoryId`, `categoryValue`) VALUES
 (1, 'Choose...'),
-(2, 'Chef'),
-(3, 'Electronic Service'),
-(4, 'House Keeper');
+(2, 'House Keeper'),
+(3, 'Nurse');
 
 -- --------------------------------------------------------
 
@@ -623,11 +659,9 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`reviewId`, `reviewRate`, `userId`, `serviceId`, `comment`, `created_at`, `updated_at`) VALUES
-(16, 3, 18, 17, 'kurang memuaskan', '2021-06-11 13:11:37', '2021-06-11 13:11:37'),
-(17, 5, 2, 20, 'sangat menarik ', '2021-06-15 14:22:52', '2021-06-15 14:22:52'),
-(18, 6, 2, 17, 'wow sangat enak sekali', '2021-06-15 14:23:26', '2021-06-15 14:23:26'),
-(21, 6, 2, 20, 'Wow Mantap jiwa', '2021-06-17 03:39:08', '2021-06-17 03:39:08'),
-(22, 3, 2, 20, 'saya kecewa, pelayanan yang diberikan kurang ramah', '2021-06-17 13:51:13', '2021-06-17 13:51:13');
+(17, 5, 2, 20, 'Sangat memuaskan, pelayanan yang diberikan sangat cepat dan rapi.', '2021-06-15 14:22:52', '2021-06-15 14:22:52'),
+(21, 6, 2, 20, 'Recommended banget buat jasanya dalam merawat dan membersihkan rumah.', '2021-06-17 03:39:08', '2021-06-17 03:39:08'),
+(23, 6, 1, 20, 'pelayanannya baik', '2021-11-01 21:48:11', '2021-11-01 21:48:11');
 
 -- --------------------------------------------------------
 
@@ -675,9 +709,9 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `category`, `location`, `price`, `created_at`, `updated_at`, `description`, `userId`, `serviceStatus`) VALUES
-(17, 2, 2, 6000000, '2021-06-05 06:08:41', '2021-06-17 03:31:23', 'Saya merupakan finalis master chef s6. Di sini, saya akan membawakan beberapa menu makanan berupa:\r\n- Fruid salad\r\n- Lontong sayur\r\n- Wine\r\n- Wagyu A5 premium', 1, 1),
-(20, 2, 2, 5500000, '2021-06-13 10:00:02', '2021-06-17 03:34:28', 'Saya lulusan Le Cordon Bleu sebagai seorang chef profesional. Saya akan membawakan beberapa menu makanan seperti:\r\n- Banana cake\r\n- Pudding jelly\r\n- Special ramen\r\n- Dim Sum\r\n- Tom Yum', 18, 1),
-(23, 2, 2, 50000000, '2021-06-18 06:20:14', '2021-06-18 06:20:44', 'saya adalah seorang chef yang mahir dalam membuat aneka menu makanan nusantara. Berikut merupakan beberapa makanan yang akan saya sajikan kepada anda: - tahu mercon -rujak cingur - es nona - rendang - pudding - soto babat', 2, 1);
+(20, 2, 2, 250000, '2021-06-13 10:00:02', '2021-10-30 04:29:26', 'Saya adalah seorang pekerja rumah tangga yang dapat membantu anda untuk mengatasi beberapa masalah rumah tangga seperti membersihkan kolam, memotong rumput, merapikan tanaman, menyapu, mengepel, dan membersihkan sisa-sisa pakaian atau piring yang kotor.', 18, 1),
+(23, 2, 2, 150000, '2021-06-18 06:20:14', '2021-10-30 04:21:46', 'saya adalah seorang pekerja rumah tangga yang mahir dalam merawat dan membersihkan rumah. Selain itu, saya juga dapat membantu untuk memelihara peliharaan, merapikan pakaian, dan membantu untuk membersihkan pakaian atau piring-piring kotor.', 2, 1),
+(25, 2, 2, 100000, '2021-11-01 21:46:50', '2021-11-01 21:46:57', 'Saya adalah seorang pengurus rumah yang handal dan disiplin. Saya dapat melakukan beberapa pekerjaan rumah seperti menyapu, mengepel, membersihkan selokan, dan merawat tanaman.', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -714,10 +748,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `name`, `slug`, `dob`, `gender`, `address`, `picture`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'fernando.chai112@gmail.com', 'fernando', 'Fernando Mandoroso', 'fernando-mandoroso', '2021-05-01', 'Male', 'Jalan mt haryono no 44', '1623954354_04aa26d80587616bf236.jpg', '$2y$10$iQRtCbwTbluz/h1oetaIf.9od11woilba1aKhJOzW6Mp4D.qPJsxO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-22 13:59:28', '2021-06-17 13:25:54', NULL),
-(2, 'fchai69@gmail.com', 'nane', 'nano nano', 'nano-nano', '2021-05-08', 'Female', 'sukarta', 'profile.png', '$2y$10$tFy5OfABiKjJA2Rg/9XzQul3DVKEPTen44IMOS0lfe4gz0IChQ33G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-23 05:43:42', '2021-06-16 11:42:53', NULL),
-(18, 'fernando.chai76@gmail.com', 'aceng', 'ace', 'ace', '2021-06-16', 'Male', 'jalan patimura nomor 5 ', '1623333514_344d378f7eaa82c778fc.jpg', '$2y$10$wqkQMEgMBetQ5CCse1tpsenY0jqV9Zxi6ow95PfKvPrKi9rbqh6.y', NULL, '2021-06-10 08:59:48', NULL, NULL, NULL, NULL, 1, 0, '2021-06-10 08:44:41', '2021-06-10 08:59:48', NULL),
-(20, 'instagramfernando1@gmail.com', 'Fernando Chai', 'Fernando Chai', 'fernando-chai', '2021-06-17', 'Male', 'Jalan ponogoro nomor 77', '1623948010_d465dc73e8d194bd439d.jpg', '$2y$10$BsOQLIFDJRBNCtvxKKqJHOiCncLEevavlsr1qTrpAUCKP8j5hDr8K', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-16 09:22:29', '2021-06-17 12:36:10', NULL);
+(1, 'fernando.chai112@gmail.com', 'Rosa', 'Rosa Natalia', 'rosa-natalia', '1996-01-09', 'Female', 'Jalan mt haryono no 44', '1635585378_cfb1f961ef7737d91fbe.jpg', '$2y$10$iQRtCbwTbluz/h1oetaIf.9od11woilba1aKhJOzW6Mp4D.qPJsxO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-22 13:59:28', '2021-10-30 04:17:44', NULL),
+(2, 'fchai69@gmail.com', 'nane', 'nano nano', 'nano-nano', '1998-10-16', 'Female', 'sukarta', '1635585681_2974a3df012e3dc0f9c7.jpg', '$2y$10$tFy5OfABiKjJA2Rg/9XzQul3DVKEPTen44IMOS0lfe4gz0IChQ33G', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-05-23 05:43:42', '2021-10-30 04:21:21', NULL),
+(18, 'fernando.chai76@gmail.com', 'Hartono', 'Hartono Surhanto', 'hartono-surhanto', '1991-07-24', 'Male', 'jalan patimura nomor 5 ', '1635586001_61e7a84f12a930fb5e1b.jpg', '$2y$10$wqkQMEgMBetQ5CCse1tpsenY0jqV9Zxi6ow95PfKvPrKi9rbqh6.y', NULL, '2021-06-10 08:59:48', NULL, NULL, NULL, NULL, 1, 0, '2021-06-10 08:44:41', '2021-10-30 04:26:41', NULL),
+(20, 'instagramfernando1@gmail.com', 'Fernando Chai', 'Fernando Chai', 'fernando-chai', '2021-06-17', 'Male', 'Jalan ponogoro nomor 77', '1635587299_7c4e212294bb387665ac.png', '$2y$10$BsOQLIFDJRBNCtvxKKqJHOiCncLEevavlsr1qTrpAUCKP8j5hDr8K', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-06-16 09:22:29', '2021-10-30 04:48:19', NULL);
 
 --
 -- Indexes for dumped tables
@@ -875,7 +909,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -899,7 +933,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `bookingstatus`
@@ -935,7 +969,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `reviewId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `reviewrate`
@@ -947,7 +981,7 @@ ALTER TABLE `reviewrate`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1007,7 +1041,7 @@ ALTER TABLE `review`
 --
 ALTER TABLE `service`
   ADD CONSTRAINT `service_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `service_ibfk_2` FOREIGN KEY (`category`) REFERENCES `category` (`CategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `service_ibfk_2` FOREIGN KEY (`category`) REFERENCES `category` (`categoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `service_ibfk_3` FOREIGN KEY (`location`) REFERENCES `location` (`locationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

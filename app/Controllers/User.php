@@ -26,7 +26,7 @@ class User extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Profile | JustRent',
+            'title' => 'Profile | JustKeeper',
             'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 
@@ -39,7 +39,7 @@ class User extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Edit Profile | JustRent',
+            'title' => 'Edit Profile | JustKeeper',
             'validation' => \config\Services::validation(),
             'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
@@ -171,7 +171,7 @@ class User extends BaseController
         $order = $this->bookModel->getOrder();
 
         $data = [
-            'title' => 'Offered service | JustRent',
+            'title' => 'Offered service | JustKepeer',
             'services' =>  $services,
             'order' => $order->paginate(1, 'order'),
             'pager' => $this->bookModel->pager,
@@ -207,7 +207,7 @@ class User extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Add Service| JustRent',
+            'title' => 'Add Service| JustKeeper',
             'validation' => \config\Services::validation(),
             'category' => $this->categoryModel->findAll(),
             'location' => $this->locationModel->findAll(),

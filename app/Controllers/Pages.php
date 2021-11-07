@@ -17,7 +17,7 @@ class Pages extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Home | JustRent',
+            'title' => 'Home | JustKeeper',
             'num' => $this->bookModel->getOrder()->countAllResults(),
         ];
 

@@ -14,7 +14,7 @@
     </div>
     <div class="row mt-2">
         <div class="col-md text-center ">
-            <img src="/Img/Logo/2.jpg" class="img-fluid" alt="logo">
+            <img src="/Img/Logo/thumbnail.jpg" class="img-fluid" alt="logo" width="70%">
         </div>
         <div class="col-md vertical-center">
             <form action="/service/result" method="GET">

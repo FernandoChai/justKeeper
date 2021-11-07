@@ -30,7 +30,7 @@ class Service extends BaseController
             return redirect()->to('/');
         }
         $data = [
-            'title' => 'Search | JustRent',
+            'title' => 'Search | JustKeeper',
             'validation' => \config\Services::validation(),
             'category' => $this->categoryModel->findAll(),
             'location' => $this->locationModel->findAll(),
@@ -69,11 +69,9 @@ class Service extends BaseController
         $location = $this->request->getVar('location');
 
         if ($category == 2) {
-            $categoryName = 'Chef';
+            $categoryName = 'HouseKeeper';
         } else if ($category == 3) {
-            $categoryName = 'Electronic Service';
-        } else {
-            $categoryName = 'House Keeper';
+            $categoryName = 'Nurse';
         }
 
         switch ($location) {
@@ -109,7 +107,7 @@ class Service extends BaseController
         }
 
         $data = [
-            'title' => 'Result | JustRent',
+            'title' => 'Result | JustKeeper',
             'service' => $service->paginate(6, 'service'),
             'pager' => $this->serviceModel->pager,
             'num' => $this->bookModel->getOrder()->countAllResults(),
@@ -164,7 +162,7 @@ class Service extends BaseController
         }
 
         $data = [
-            'title' => 'Detail Service | JustRent',
+            'title' => 'Detail Service | JustKeeper',
             'service' => $service,
             'review' => $review->paginate(3, 'review'),
             'pager' => $this->reviewModel->pager,
@@ -191,7 +189,7 @@ class Service extends BaseController
             return redirect()->to("/Pages");
         }
         $data = [
-            'title' => 'Checkout Service | JustRent',
+            'title' => 'Checkout Service | JustKeeper',
             'service' => $this->serviceModel->getService($slug),
             'validation' => \config\Services::validation(),
             'num' => $this->bookModel->getOrder()->countAllResults(),
@@ -259,7 +257,7 @@ class Service extends BaseController
         }
 
         $data = [
-            'title' => 'Edit Service | JustRent',
+            'title' => 'Edit Service | JustKeeper',
             'validation' => \config\Services::validation(),
             'service' => $this->serviceModel->getService($slug),
             'category' => $this->categoryModel->findAll(),
@@ -340,7 +338,7 @@ class Service extends BaseController
 
 
         $data = [
-            'title' => 'Review Service | JustRent',
+            'title' => 'Review Service | JustKeeper',
             'validation' => \config\Services::validation(),
             'review' => $this->reviewRate->findAll(),
             'slug' => $slug,
